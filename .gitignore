@@ -1,2 +1,7 @@
 *__pycache__*
 *.pyc
+/efficientdet/dataset/*
+/efficientdet/data/*
+/efficientdet/efficientdet*
+/efficientdet/pretrain/*
+/efficientdet/tfrecord*

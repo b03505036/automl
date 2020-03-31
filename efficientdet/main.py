@@ -78,7 +78,7 @@ flags.DEFINE_multi_integer(
     'A list that describes the partition dims for all the tensors.')
 flags.DEFINE_integer('train_batch_size', 64, 'training batch size')
 flags.DEFINE_integer('eval_batch_size', 1, 'evaluation batch size')
-flags.DEFINE_integer('eval_samples', 5000, 'The number of samples for '
+flags.DEFINE_integer('eval_samples', 1043, 'The number of samples for '
                      'evaluation.')
 flags.DEFINE_integer(
     'iterations_per_loop', 100, 'Number of iterations per TPU training loop')
@@ -94,9 +94,9 @@ flags.DEFINE_string(
     'COCO validation JSON containing golden bounding boxes.')
 flags.DEFINE_string('testdev_dir', None,
                     'COCO testdev dir. If true, ignorer val_json_file.')
-flags.DEFINE_integer('num_examples_per_epoch', 120000,
+flags.DEFINE_integer('num_examples_per_epoch', 4500,
                      'Number of examples in one epoch')
-flags.DEFINE_integer('num_epochs', 15, 'Number of epochs for training')
+flags.DEFINE_integer('num_epochs', 12, 'Number of epochs for training')
 flags.DEFINE_string('mode', 'train',
                     'Mode to run: train or eval (default: train)')
 flags.DEFINE_string('model_name', 'efficientdet-d1',
