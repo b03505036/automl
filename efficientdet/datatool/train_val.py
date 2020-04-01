@@ -4,7 +4,6 @@ import os, random, shutil
 def copyFile(fileDir):
     #1 
     pathDir = os.listdir(fileDir)
-    #2一定要絕對路徑
     train = random.sample(pathDir, 4500)
     # print (train)
     val = [ x for x in pathDir if x not in train]
@@ -20,11 +19,11 @@ def copyFile(fileDir):
     print("Train samples is {}".format(len(train)))
     print("Val samples is {}".format(len(val)))
 if __name__ == '__main__':
-    fileDir = "/home/oym/mmdetection/data/coco/image/"
-    trainDir = '/home/oym/mmdetection/data/coco/image_train/'
+    fileDir = "/home/kenny70037/automl/train/image/"
+    trainDir = '/home/kenny70037/automl/efficientdet/dataset/coco/image_train/'
     if not os.path.exists(trainDir):
         os.makedirs(trainDir)
-    valDir = '/home/oym/mmdetection/data/coco/image_val/'
+    valDir = '/home/kenny70037/automl/efficientdet/dataset/coco/image_val/'
     if not os.path.exists(valDir):
         os.makedirs(valDir)
     copyFile(fileDir)

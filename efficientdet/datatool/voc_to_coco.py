@@ -4,12 +4,12 @@ import json
 import xml.dom.minidom
 import xml.etree.ElementTree as ET
 
-# data_dir = './train' #根目录文件，其中包含image文件夹和box文件夹（根据自己的情况修改这个路径）
+# data_dir = './trai
 
 # image_file_dir = os.path.join(data_dir, 'image')
-image_file_dir = '/home/oym/mmdetection/data/coco/image'
+image_file_dir = '/home/kenny70037/automl/efficientdet/dataset/coco/image_val'
 # xml_file_dir = os.path.join(data_dir, 'box')
-xml_file_dir = '/home/oym/mmdetection/data/train/box'
+xml_file_dir = '/home/kenny70037/automl/train/box'
 
 annotations_info = {'images': [], 'annotations': [], 'categories': []}
 
@@ -27,7 +27,6 @@ file_names = [image_file_name.split('.')[0]
 
 ann_id = 1
 for i, file_name in enumerate(file_names):
-    #每張圖都跑一次
 
     image_file_name = file_name + '.jpg'
     xml_file_name = file_name + '.xml'
@@ -87,12 +86,11 @@ for i, file_name in enumerate(file_names):
             annotations_info['annotations'].append(annotation_info)
             ann_id += 1
 
-with  open('/home/oym/ATSS/data/coco/annotations/image_ocean.json', 'w')  as f:
+with  open('/home/kenny70037/automl/efficientdet/dataset/coco/annotations/image_val.json', 'w')  as f:
     json.dump(annotations_info, f, indent=4)
 
-print('---整理后的标注文件---')
 print(categories_count)
 print(target_range)
-print('所有图片的数量：',  len(annotations_info['images']))
-print('所有标注的数量：',  len(annotations_info['annotations']))
-print('所有类别的数量：',  len(annotations_info['categories']))
+print('all_image number:',  len(annotations_info['images']))
+print('annotations number:',  len(annotations_info['annotations']))
+print('class number:',  len(annotations_info['categories']))

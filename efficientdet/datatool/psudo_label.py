@@ -19,7 +19,7 @@ def save(images, annotations):
     for k, v in label_ids.items():
         categories.append({"name": k, "id": v})
     ann['categories'] = categories
-    json.dump(ann, open('/home/oym/mmdetection/data/coco/annotations/image_test.json', 'w'))
+    json.dump(ann, open('/home/kenny70037/automl/efficientdet/dataset/coco/annotations/image_test.json', 'w'))
 
 
 def test_dataset(im_dir):
@@ -46,6 +46,6 @@ def test_dataset(im_dir):
 
 
 if __name__ == '__main__':
-    test_dir = '/home/oym/mmdetection/data/coco/image_test/'
+    test_dir = '/home/kenny70037/automl/efficientdet/dataset/coco/image_test/'
     print("generate test json label file.")
     test_dataset(test_dir)

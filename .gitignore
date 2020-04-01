@@ -5,3 +5,5 @@
 /efficientdet/efficientdet*
 /efficientdet/pretrain/*
 /efficientdet/tfrecord*
+/efficientdet-*
+/train*

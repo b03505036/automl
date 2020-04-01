@@ -29,8 +29,6 @@ import tensorflow.compat.v1 as tf
 
 import hparams_config
 import tensorflow_addons as tfa
-
-
 # This signifies the max integer that the controller RNN could predict for the
 # augmentation scheme.
 _MAX_LEVEL = 10.

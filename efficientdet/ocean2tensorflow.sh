@@ -23,21 +23,21 @@
 #   --output_dir="${OUTPUT_DIR}"
 
 # train
-# python dataset/create_coco_tfrecord.py \
-#     --image_dir=dataset/coco/image_train \
-#     --object_annotations_file=dataset/coco/annotations/image_train.json \
-#     --output_file_prefix=tfrecord/image_train \
-#     --num_shards=32
+python3 dataset/create_coco_tfrecord.py \
+     --image_dir=dataset/coco/image_train \
+     --object_annotations_file=dataset/coco/annotations/image_train.json \
+     --output_file_prefix=tfrecord/image_train \
+     --num_shards=32
 
 # val
-python dataset/create_coco_tfrecord.py \
+python3 dataset/create_coco_tfrecord.py \
     --image_dir=dataset/coco/image_val \
     --object_annotations_file=dataset/coco/annotations/image_val.json \
     --output_file_prefix=tfrecord/image_val \
     --num_shards=32
 
 # test
-python dataset/create_coco_tfrecord.py \
+python3 dataset/create_coco_tfrecord.py \
     --image_dir=dataset/coco/image_test \
     --object_annotations_file=dataset/coco/annotations/image_test.json \
     --output_file_prefix=tfrecord/image_test \
