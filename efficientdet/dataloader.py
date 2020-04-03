@@ -299,8 +299,9 @@ class InputReader(object):
         # and normalization.
         if params.get('autoaugment_policy', None) and self._is_training:
           from aug import autoaugment  # pylint: disable=g-import-not-at-top
-          image, boxes = autoaugment.distort_image_with_autoaugment(
-              image, boxes, params['autoaugment_policy'])
+          with tf.device("/CPU:0"):
+            image, boxes = autoaugment.distort_image_with_autoaugment(
+                image, boxes, params['autoaugment_policy'])
 
         input_processor = DetectionInputProcessor(
             image, params['image_size'], boxes, classes)
