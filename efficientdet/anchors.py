@@ -580,7 +580,7 @@ class AnchorLabeler(object):
                           image_id,
                           image_scale,
                           min_score_thresh=0.2,
-                          max_boxes_to_draw=500,
+                          max_boxes_to_draw=50,
                           disable_pyfun=None):
     """Generate detections based on class and box predictions."""
     if disable_pyfun:

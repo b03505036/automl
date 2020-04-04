@@ -1,8 +1,8 @@
 #!/bin/bash 
 
-MODEL="efficientdet-d2"
+MODEL="efficientdet-d5"
 Model_dir="gs://kennygs2/models/"${MODEL}
-ckp="gs://kennygs2/models/pretrain_efficientdet-d2/"
+ckp="gs://kennygs2/models/pretrain_efficientdet-d5/"
 
 python3 main.py --mode="eval"  \
     --model_name=$MODEL  --model_dir=$ckp  \

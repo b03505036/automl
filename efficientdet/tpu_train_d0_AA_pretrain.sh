@@ -5,7 +5,7 @@ MODEL=efficientdet-d0
 python3 main.py --tpu=${TPU_NAME} \
     		--model_name=$MODEL \
        		--training_file_pattern=${DATA_DIR}/image_train* \
-		--model_dir="${MODEL_DIR}pretrain_AA_${MODEL}" \
+		--model_dir="${MODEL_DIR}pretrain_AA${MODEL}" \
 		--mode='train'\
 		--use_tpu="TRUE" \
     		--hparams="num_classes=4,var_exclude_expr=r'.*/class-predict/.*',learning_rate=0.008,autoaugment_policy=v0" \

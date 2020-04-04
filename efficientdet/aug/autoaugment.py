@@ -28,7 +28,12 @@ from absl import logging
 import tensorflow.compat.v1 as tf
 
 import hparams_config
-import tensorflow_addons as tfa
+
+try:
+        import tensorflow_addons.image as contrib_image
+except:
+        import tensorflow.contrib.image as contrib_image
+
 # This signifies the max integer that the controller RNN could predict for the
 # augmentation scheme.
 _MAX_LEVEL = 10.
@@ -319,7 +324,7 @@ def rotate(image, degrees, replace):
   # In practice, we should randomize the rotation degrees by flipping
   # it negatively half the time, but that's done on 'degrees' outside
   # of the function.
-  image = tfa.image.rotate(wrap(image), radians)
+  image = contrib_image.rotate(wrap(image), radians)
   return unwrap(image, replace)
 
 
@@ -874,13 +879,13 @@ def rotate_with_bboxes(image, bboxes, degrees, replace):
 
 def translate_x(image, pixels, replace):
   """Equivalent of PIL Translate in X dimension."""
-  image = tfa.image.translate(wrap(image), [-pixels, 0])
+  image = contrib_image.translate(wrap(image), [-pixels, 0])
   return unwrap(image, replace)
 
 
 def translate_y(image, pixels, replace):
   """Equivalent of PIL Translate in Y dimension."""
-  image = tfa.image.translate(wrap(image), [0, -pixels])
+  image = contrib_image.translate(wrap(image), [0, -pixels])
   return unwrap(image, replace)
 
 
@@ -965,7 +970,7 @@ def shear_x(image, level, replace):
   # with a matrix form of:
   # [1  level
   #  0  1].
-  image = tfa.image.transform(
+  image = contrib_image.transform(
       wrap(image), [1., level, 0., 0., 1., 0., 0., 0.])
   return unwrap(image, replace)
 
@@ -976,7 +981,7 @@ def shear_y(image, level, replace):
   # with a matrix form of:
   # [1  0
   #  level  1].
-  image = tfa.image.transform(
+  image = contrib_image.transform(
       wrap(image), [1., 0., 0., level, 1., 0., 0., 0.])
   return unwrap(image, replace)
 
